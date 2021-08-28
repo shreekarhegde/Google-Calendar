@@ -8,6 +8,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { getAllDaysInTheWeek, times } from '../../utils';
 import moment from 'moment';
+import { TimeSlots } from '../TimeSlots/TimeSlots';
 
 export interface Day {
 	date: number;
@@ -48,6 +49,7 @@ const WeekHeader = () => {
 			<Table>
 				<TableHead>
 					<TableRow>
+						<TableCell className={classes.textCenter}></TableCell>
 						{daysInWeek.map((day: Day) => (
 							<TableCell key={day.date} className={classes.textCenter}>
 								<div>{day.weekDayName}</div>
@@ -56,36 +58,7 @@ const WeekHeader = () => {
 						))}
 					</TableRow>
 				</TableHead>
-				<TableBody>
-					{times.map((time: any) => (
-						<TableRow key={time}>
-							<TableCell>
-								<span>{formattedTime(time)}</span>
-							</TableCell>
-							<TableCell>
-								<div>text</div>
-							</TableCell>
-							<TableCell>
-								<div>text</div>
-							</TableCell>
-							<TableCell>
-								<div>text</div>
-							</TableCell>
-							<TableCell>
-								<div>text</div>
-							</TableCell>
-							<TableCell>
-								<div>text</div>
-							</TableCell>
-							<TableCell>
-								<div>text</div>
-							</TableCell>
-							<TableCell>
-								<div>text</div>
-							</TableCell>
-						</TableRow>
-					))}
-				</TableBody>
+				<TimeSlots />
 			</Table>
 		</TableContainer>
 	);
