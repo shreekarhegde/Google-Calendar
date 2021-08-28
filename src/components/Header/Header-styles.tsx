@@ -33,5 +33,8 @@ export const useStyles = makeStyles(
 		border: {
 			border: '0px',
 		},
+		borderBottom: {
+			border: '1px solid rgba(224, 224, 224, 1)',
+		},
 	})
 );

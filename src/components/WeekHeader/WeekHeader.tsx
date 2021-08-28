@@ -16,12 +16,13 @@ export interface Day {
 const WeekHeader = () => {
 	const classes = useStyles();
 	const daysInWeek = getAllDaysInTheWeek();
+	const topCellClasses = `${classes.textCenter} ${classes.borderNone}`;
 	return (
 		<TableContainer component={Paper}>
 			<Table>
 				<TableHead>
 					<TableRow>
-						<TableCell className={classes.textCenter}></TableCell>
+						<TableCell className={topCellClasses}></TableCell>
 						{daysInWeek.map((day: Day) => (
 							<TableCell key={day.date} className={classes.textCenter}>
 								<div>{day.weekDayName}</div>

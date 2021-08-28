@@ -10,14 +10,15 @@ import { useStyles } from './Header-styles';
 
 export const Header = () => {
 	const classes = useStyles();
-	const classNames = `${classes.bgWhite} ${classes.textcolor}`;
+	const toolBarClasses = `${classes.bgWhite} ${classes.textcolor}`;
 	const cardClasses = `${classes.pointer} ${classes.ml20} `;
 	const calendarClasses = `${classes.fontFa} ${classes.ml10} ${classes.border}`;
 	const iconClasses = `${classes.ml20} ${classes.pointer}`;
+	const rootClasses = `${classes.root} ${classes.borderBottom}`;
 	return (
-		<div className={classes.root}>
+		<div className={rootClasses}>
 			<AppBar position='static'>
-				<Toolbar className={classNames}>
+				<Toolbar className={toolBarClasses}>
 					<IconButton edge='start' className={classes.menuButton} color='inherit' aria-label='menu'>
 						<MenuIcon />
 					</IconButton>

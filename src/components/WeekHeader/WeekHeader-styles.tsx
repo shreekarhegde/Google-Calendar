@@ -12,4 +12,7 @@ export const useStyles = makeStyles({
 		color: '#70757a',
 		marginTop: '10px',
 	},
+	borderNone: {
+		border: 'none',
+	},
 });

@@ -7,5 +7,16 @@ export const useStyles = makeStyles({
 	time: {
 		width: '45px',
 		textAlign: 'center',
+		border: 'none',
+		position: 'relative',
+	},
+	borderNone: {
+		border: 'none',
+	},
+	timeFormat: {
+		position: 'absolute',
+		top: '-12px',
+		left: '30px',
+		width: 'fit-content',
 	},
 });
