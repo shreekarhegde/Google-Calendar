@@ -7,7 +7,7 @@ import { WeekView } from './WeekView/WeekView';
 export const Calendar = () => {
 	const [startDate, setStartDate] = useState(+moment());
 	const [weekDays, setWeekDays] = useState(getAllDaysInTheWeek());
-
+	const [month, setMonth] = useState('September');
 	/**
 	 * Sets next week days in the state
 	 */
@@ -15,6 +15,7 @@ export const Calendar = () => {
 		const dateAfter7Days = moment(startDate).add(7, 'days');
 		setStartDate(+dateAfter7Days);
 		setWeekDays(getAllDaysInTheWeek(dateAfter7Days));
+		setMonth(moment(dateAfter7Days).format('MMMM'));
 	};
 
 	/**
@@ -24,11 +25,12 @@ export const Calendar = () => {
 		const dateBefore7Days = moment(startDate).subtract(7, 'days');
 		setStartDate(+dateBefore7Days);
 		setWeekDays(getAllDaysInTheWeek(dateBefore7Days));
+		setMonth(moment(dateBefore7Days).format('MMMM'));
 	};
 
 	return (
 		<React.Fragment>
-			<Header goToPreviousWeek={goToPreviousWeek} goToNextWeek={goToNextWeek} />
+			<Header goToPreviousWeek={goToPreviousWeek} goToNextWeek={goToNextWeek} month={month} />
 			<WeekView weekDays={weekDays} />
 		</React.Fragment>
 	);

@@ -16,6 +16,8 @@ export const Header = (props: any) => {
 	const iconClasses = `${classes.ml20} ${classes.pointer}`;
 	const rootClasses = `${classes.root} ${classes.borderBottom}`;
 
+	const month = props.month;
+
 	return (
 		<div className={rootClasses}>
 			<AppBar position='static'>
@@ -38,6 +40,7 @@ export const Header = (props: any) => {
 					</Card>
 					<ChevronLeftIcon className={iconClasses} onClick={props.goToPreviousWeek} />
 					<ChevronRightIcon className={classes.pointer} onClick={props.goToNextWeek} />
+					<h2 className={classes.p7}>{month}</h2>
 				</Toolbar>
 			</AppBar>
 		</div>
