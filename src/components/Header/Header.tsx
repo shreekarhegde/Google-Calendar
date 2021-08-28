@@ -8,13 +8,14 @@ import { CardContent } from '@material-ui/core';
 import { Card } from '@material-ui/core';
 import { useStyles } from './Header-styles';
 
-export const Header = () => {
+export const Header = (props: any) => {
 	const classes = useStyles();
 	const toolBarClasses = `${classes.bgWhite} ${classes.textcolor}`;
 	const cardClasses = `${classes.pointer} ${classes.ml20} `;
 	const calendarClasses = `${classes.fontFa} ${classes.ml10} ${classes.border}`;
 	const iconClasses = `${classes.ml20} ${classes.pointer}`;
 	const rootClasses = `${classes.root} ${classes.borderBottom}`;
+
 	return (
 		<div className={rootClasses}>
 			<AppBar position='static'>
@@ -35,8 +36,8 @@ export const Header = () => {
 					<Card variant='outlined' className={cardClasses}>
 						<CardContent className={classes.p7}>Today</CardContent>
 					</Card>
-					<ChevronLeftIcon className={iconClasses} />
-					<ChevronRightIcon className={classes.pointer} />
+					<ChevronLeftIcon className={iconClasses} onClick={props.goToPreviousWeek} />
+					<ChevronRightIcon className={classes.pointer} onClick={props.goToNextWeek} />
 				</Toolbar>
 			</AppBar>
 		</div>
