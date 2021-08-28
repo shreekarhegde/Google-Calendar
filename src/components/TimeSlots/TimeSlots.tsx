@@ -4,21 +4,11 @@ import { times } from '../../utils';
 import TableRow from '@material-ui/core/TableRow';
 import moment from 'moment';
 import TableCell from '@material-ui/core/TableCell';
-import { makeStyles } from '@material-ui/core/styles';
-
-const useStyles = makeStyles({
-	blackBorder: {
-		border: '1px solid rgba(224, 224, 224, 1)',
-	},
-	time: {
-		width: '45px',
-		textAlign: 'center',
-	},
-});
+import { useStyles } from '../TimeSlots/TimeSlots-styles';
 
 export const TimeSlots = () => {
-	const formattedTime = (time: number) => moment().set('hours', time).format('h a');
 	const classes = useStyles();
+	const formattedTime = (time: number) => moment().set('hours', time).format('h a');
 	return (
 		<TableBody>
 			{times.map((time: any) => (

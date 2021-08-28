@@ -1,4 +1,3 @@
-import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
@@ -7,26 +6,12 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { getAllDaysInTheWeek } from '../../utils';
 import { TimeSlots } from '../TimeSlots/TimeSlots';
-
+import { useStyles } from './WeekHeader-styles';
 export interface Day {
 	date: number;
 	dateStamp: number;
 	weekDayName: string;
 }
-
-const useStyles = makeStyles({
-	table: {
-		minWidth: 650,
-	},
-	textCenter: {
-		textAlign: 'center',
-	},
-	date: {
-		fontSize: '26px',
-		color: '#70757a',
-		marginTop: '10px',
-	},
-});
 
 const WeekHeader = () => {
 	const classes = useStyles();
