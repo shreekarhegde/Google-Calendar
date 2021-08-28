@@ -1,11 +1,7 @@
-import Table from '@material-ui/core/Table';
 import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
 import { getAllDaysInTheWeek } from '../../utils';
-import { TimeSlots } from '../TimeSlots/TimeSlots';
 import { useStyles } from './WeekHeader-styles';
 export interface Day {
 	date: number;
@@ -18,22 +14,17 @@ const WeekHeader = () => {
 	const daysInWeek = getAllDaysInTheWeek();
 	const topCellClasses = `${classes.textCenter} ${classes.borderNone}`;
 	return (
-		<TableContainer component={Paper}>
-			<Table>
-				<TableHead>
-					<TableRow>
-						<TableCell className={topCellClasses}></TableCell>
-						{daysInWeek.map((day: Day) => (
-							<TableCell key={day.date} className={classes.textCenter}>
-								<div>{day.weekDayName}</div>
-								<div className={classes.date}>{day.date}</div>
-							</TableCell>
-						))}
-					</TableRow>
-				</TableHead>
-				<TimeSlots />
-			</Table>
-		</TableContainer>
+		<TableHead>
+			<TableRow>
+				<TableCell className={topCellClasses}></TableCell>
+				{daysInWeek.map((day: Day) => (
+					<TableCell key={day.date} className={classes.textCenter}>
+						<div>{day.weekDayName}</div>
+						<div className={classes.date}>{day.date}</div>
+					</TableCell>
+				))}
+			</TableRow>
+		</TableHead>
 	);
 };
 

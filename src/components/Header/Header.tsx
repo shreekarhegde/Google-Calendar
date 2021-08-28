@@ -30,10 +30,10 @@ export const Header = () => {
 						style={{ width: '40px', height: '40px' }}
 					/>
 					<Card variant='outlined' className={calendarClasses}>
-						<CardContent className={classes.p5}>Calendar</CardContent>
+						<CardContent className={classes.p7}>Calendar</CardContent>
 					</Card>
 					<Card variant='outlined' className={cardClasses}>
-						<CardContent className={classes.p5}>Today</CardContent>
+						<CardContent className={classes.p7}>Today</CardContent>
 					</Card>
 					<ChevronLeftIcon className={iconClasses} />
 					<ChevronRightIcon className={classes.pointer} />

@@ -23,8 +23,8 @@ export const useStyles = makeStyles(
 		ml20: {
 			marginLeft: '20px',
 		},
-		p5: {
-			padding: '5px !important',
+		p7: {
+			padding: '7px !important',
 		},
 		fontFa: {
 			fontFamily: `${'Product Sans'}`,

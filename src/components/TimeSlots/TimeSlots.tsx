@@ -9,7 +9,7 @@ export const TimeSlots = () => {
 	const classes = useStyles();
 	const formattedTime = (time: number) => moment().set('hours', time).format('h a');
 	return (
-		<TableBody>
+		<TableBody style={{ overflow: 'scroll' }}>
 			<TableRow>
 				<TableCell className={classes.borderNone}></TableCell>
 				<TableCell className={classes.blackBorder}></TableCell>
