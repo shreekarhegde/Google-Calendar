@@ -6,7 +6,7 @@ import { useStyles } from './WeekHeader-styles';
 import { Fab } from '@material-ui/core';
 import moment from 'moment';
 
-const WeekHeader = (props: any) => {
+const WeekHeader = (props: { weekDays: any[] }) => {
 	const classes = useStyles();
 	const weekDays = props.weekDays;
 	const topCellClasses = `${classes.textCenter} ${classes.borderNone}`;
@@ -18,7 +18,7 @@ const WeekHeader = (props: any) => {
 					<TableCell key={day.date} className={classes.textCenter}>
 						<div>{day.weekDayName}</div>
 						{day.weekDayName === moment(new Date()).format('ddd') && day.date === new Date().getDate() ? (
-							<Fab style={{ backgroundColor: '#1a73e8', color: 'white', fontSize: '20px' }}>{day.date}</Fab>
+							<Fab className={classes.fab}>{day.date}</Fab>
 						) : (
 							<div className={classes.date}>{day.date}</div>
 						)}

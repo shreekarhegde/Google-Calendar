@@ -1,13 +1,16 @@
 import moment from 'moment';
 import React, { useState } from 'react';
-import { getAllDaysInTheWeek } from '../utils';
-import { Header } from './Header/Header';
-import { WeekView } from './WeekView/WeekView';
+import { getAllDaysInTheWeek } from '../../utils';
+import { useStyles } from './Calendar-styles';
+import { Header } from '../Header/Header';
+import { WeekView } from '../WeekView/WeekView';
 
 export const Calendar = () => {
 	const [startDate, setStartDate] = useState(+moment());
 	const [weekDays, setWeekDays] = useState(getAllDaysInTheWeek());
 	const [month, setMonth] = useState('September');
+	const classes = useStyles();
+
 	/**
 	 * Sets next week days in the state
 	 */
@@ -28,13 +31,22 @@ export const Calendar = () => {
 		setMonth(moment(dateBefore7Days).format('MMMM'));
 	};
 
+	/**
+	 * Reset state to today
+	 */
+	const reset = () => {
+		setStartDate(+moment());
+		setWeekDays(getAllDaysInTheWeek());
+	};
+
 	return (
 		<React.Fragment>
 			<Header
 				goToPreviousWeek={goToPreviousWeek}
 				goToNextWeek={goToNextWeek}
 				month={month}
-				style={{ position: 'fixed', width: '100%' }}
+				className={classes.header}
+				reset={reset}
 			/>
 			<WeekView weekDays={weekDays} />
 		</React.Fragment>

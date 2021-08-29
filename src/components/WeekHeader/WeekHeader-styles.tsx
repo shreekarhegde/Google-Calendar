@@ -15,4 +15,9 @@ export const useStyles = makeStyles({
 	borderNone: {
 		border: 'none',
 	},
+	fab: {
+		backgroundColor: '#1a73e8',
+		color: 'white',
+		fontSize: '20px',
+	},
 });

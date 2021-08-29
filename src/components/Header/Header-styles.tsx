@@ -36,5 +36,9 @@ export const useStyles = makeStyles(
 		borderBottom: {
 			border: '1px solid rgba(224, 224, 224, 1)',
 		},
+		img: {
+			width: '40px',
+			height: '40px',
+		},
 	})
 );

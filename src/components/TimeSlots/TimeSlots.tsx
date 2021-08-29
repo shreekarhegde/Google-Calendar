@@ -3,11 +3,12 @@ import { formattedTime, isDateEqual, isTimeEqual, times } from '../../utils';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 import { useStyles } from '../TimeSlots/TimeSlots-styles';
-import { Event } from '../Event/Event';
 import { useEffect, useState } from 'react';
 import { getAll } from '../../indexedDB';
+import { WeekDays } from '../../interfaces/weekDay.interface';
+import { EventComponent } from '../Event/Event';
 
-export const TimeSlots = (props: any) => {
+export const TimeSlots = (props: WeekDays) => {
 	const classes = useStyles();
 
 	const [events, setEvents] = useState([]);
@@ -45,7 +46,7 @@ export const TimeSlots = (props: any) => {
 								return (
 									isTimeEqual(time, event) &&
 									isDateEqual(new Date(el.dateStamp), new Date(event.startDate)) && (
-										<Event key={event.title} event={event} />
+										<EventComponent key={event.title} event={event} />
 									)
 								);
 							})}

@@ -4,8 +4,9 @@ import TableContainer from '@material-ui/core/TableContainer';
 
 import WeekHeader from '../WeekHeader/WeekHeader';
 import { TimeSlots } from '../TimeSlots/TimeSlots';
+import { WeekDays } from '../../interfaces';
 
-export const WeekView = (props: any) => {
+export const WeekView = (props: WeekDays) => {
 	return (
 		<TableContainer component={Paper}>
 			<Table>
