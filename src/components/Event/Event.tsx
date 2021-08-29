@@ -27,9 +27,9 @@ export const Event = (props: any) => {
 			}}
 		>
 			{props.event.title} <br />
-			{props.event && props.event.start && (
+			{props.event && props.event.startTime && (
 				<span style={{ fontSize: 10 }}>
-					{formattedTime(props.event.start)} - {formattedTime(props.event.end)}
+					{formattedTime(props.event.startTime)} - {formattedTime(props.event.endTime)}
 				</span>
 			)}
 		</div>
