@@ -23,8 +23,9 @@ You will also see any lint errors in the console.
 
 # Getting Started with this project
 * Copy the URL and clone to your local repository using *git clone*
-* run *npm install*
-* run *npm start*
+* Change directory to the folder
+* Run *npm install*
+* Run *npm start*
 
 # Features
 * Events are displayed with duration and title
