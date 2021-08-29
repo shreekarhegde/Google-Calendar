@@ -5,7 +5,7 @@ export const useStyles = makeStyles({
 		backgroundColor: 'rgb(3, 155, 229)',
 		borderRadius: '4px',
 		color: 'white',
-		padding: '2px 4px',
+		padding: '0px 2px',
 		fontSize: '12px',
 		zIndex: 1,
 		cursor: 'pointer',
