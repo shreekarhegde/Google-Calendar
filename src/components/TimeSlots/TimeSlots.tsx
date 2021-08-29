@@ -8,6 +8,12 @@ import { getAll } from '../../indexedDB';
 import { WeekDays } from '../../interfaces/weekDay.interface';
 import { EventComponent } from '../Event/Event';
 
+/**
+ * UI of time slot, fetches data from indexedDB
+ * On matching of time and date of events, renders it to UI
+ * @param {object} props 
+ * @returns 
+ */
 export const TimeSlots = (props: WeekDays) => {
 	const classes = useStyles();
 	const slotClasess = `${classes.slotWidth} ${classes.blackBorder}`;

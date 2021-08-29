@@ -4,6 +4,11 @@ import { Event } from '../../interfaces';
 import { Tooltip } from '@material-ui/core';
 import moment from 'moment';
 
+/**
+ * UI of events, displays time and date
+ * @param props {object}
+ * @returns 
+ */
 export const EventComponent = (props: { event: Event }) => {
 	const classes = useStyles();
 	const outerDivClasses = `${classes.eventHighlighter} ${classes.flexCol}`;

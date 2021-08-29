@@ -5,6 +5,11 @@ import { useStyles } from './Calendar-styles';
 import { Header } from '../Header/Header';
 import { WeekView } from '../WeekView/WeekView';
 
+/**
+ * Embeds Header and Week view components
+ * Implements previous and next week transitions and reset
+ * @returns 
+ */
 export const Calendar = () => {
 	const [startDate, setStartDate] = useState(+moment());
 	const [weekDays, setWeekDays] = useState(getAllDaysInTheWeek());

@@ -6,6 +6,11 @@ import WeekHeader from '../WeekHeader/WeekHeader';
 import { TimeSlots } from '../TimeSlots/TimeSlots';
 import { WeekDays } from '../../interfaces';
 
+/**
+ * Combines Week Header and time slots
+ * @param {props} props 
+ * @returns 
+ */
 export const WeekView = (props: WeekDays) => {
 	return (
 		<TableContainer component={Paper}>

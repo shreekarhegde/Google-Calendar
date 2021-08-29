@@ -7,6 +7,11 @@ import { Card } from '@material-ui/core';
 import { useStyles } from './Header-styles';
 import moment from 'moment';
 
+/**
+ * UI of header, calls goToPreviousWeek, goToNextWeek and reset functions
+ * @param {object} props
+ * @returns 
+ */
 export const Header = (props: any) => {
 	const classes = useStyles();
 	const toolBarClasses = `${classes.bgWhite} ${classes.textcolor}`;

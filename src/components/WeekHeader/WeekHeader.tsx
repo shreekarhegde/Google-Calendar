@@ -6,6 +6,11 @@ import { useStyles } from './WeekHeader-styles';
 import { Fab } from '@material-ui/core';
 import moment from 'moment';
 
+/**
+ * UI of week name and dates
+ * @param {object} props 
+ * @returns 
+ */
 const WeekHeader = (props: { weekDays: any[] }) => {
 	const classes = useStyles();
 	const weekDays = props.weekDays;

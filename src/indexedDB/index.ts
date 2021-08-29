@@ -3,6 +3,7 @@ import moment from 'moment';
 import { Calendar } from '../interfaces';
 import { generateHeight } from '../utils';
 
+//Events to be stored in indexedDB
 let events: any = [
 	{ title: 'Event 1', startTime: '1', endTime: '2', startDate: new Date('09-03-2021'), endDate: new Date('09-03-2021') },
 	{ title: 'Event 2', startTime: '10', endTime: '11', startDate: new Date('09-04-2021'), endDate: new Date('09-04-2021') },
@@ -10,8 +11,10 @@ let events: any = [
 	{ title: 'Event 4', startTime: '7', endTime: '9', startDate: new Date('08-29-2021'), endDate: new Date('08-29-2021') },
 ];
 
+//copying the event
 let copyEvents = [...events];
 
+//If two events have same date and time, increase left margin by 10%
 for (let i = 0; i < events.length; i++) {
 	let date = events[i].startDate;
 	let left = 0;
@@ -24,6 +27,7 @@ for (let i = 0; i < events.length; i++) {
 	}
 }
 
+//Create promise object to write into indexedDB
 const promiseObj = openDB<Calendar>('Calender', 1, {
 	upgrade(db) {
 		const calendarStore = db.createObjectStore('event', { keyPath: 'id', autoIncrement: true });
@@ -31,6 +35,7 @@ const promiseObj = openDB<Calendar>('Calender', 1, {
 	},
 });
 
+//Modify data to be stored into indexedDB and store them
 (async () => {
 	try {
 		const response = await (await promiseObj).getAll('event');
@@ -52,6 +57,7 @@ const promiseObj = openDB<Calendar>('Calender', 1, {
 	}
 })();
 
+//Get all stored events
 export async function getAll() {
 	return (await promiseObj).getAll('event');
 }
