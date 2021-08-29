@@ -10,7 +10,7 @@ export const WeekView = (props: any) => {
 		<TableContainer component={Paper}>
 			<Table>
 				<WeekHeader weekDays={props.weekDays}></WeekHeader>
-				<TimeSlots />
+				<TimeSlots weekDays={props.weekDays} />
 			</Table>
 		</TableContainer>
 	);
