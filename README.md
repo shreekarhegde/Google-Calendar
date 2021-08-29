@@ -21,6 +21,11 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
+# Getting Started with this project
+* Copy the URL and clone to your local repository using *git clone*
+* run *npm install*
+* run *npm start*
+
 # Features
 * Events are displayed with duration and title
 * Dynamic display of events based on hours and date
