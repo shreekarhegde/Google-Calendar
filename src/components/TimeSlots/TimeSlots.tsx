@@ -9,28 +9,25 @@ export const TimeSlots = () => {
 	const classes = useStyles();
 	const formattedTime = (time: number) => moment().set('hours', time).format('h a');
 	return (
-		<TableBody style={{ overflow: 'scroll' }}>
+		<TableBody>
 			<TableRow>
 				<TableCell className={classes.borderNone}></TableCell>
-				<TableCell className={classes.blackBorder}></TableCell>
-				<TableCell className={classes.blackBorder}></TableCell>
-				<TableCell className={classes.blackBorder}></TableCell>
-				<TableCell className={classes.blackBorder}></TableCell>
-				<TableCell className={classes.blackBorder}></TableCell>
-				<TableCell className={classes.blackBorder}></TableCell>
+				{[...Array(6)]
+					.map((_, i) => i + 1)
+					.map((el) => (
+						<TableCell key={el.toString()} className={classes.blackBorder}></TableCell>
+					))}
 			</TableRow>
 			{times.map((time: any) => (
 				<TableRow key={time}>
 					<TableCell className={classes.time}>
 						<span className={classes.timeFormat}>{formattedTime(time)}</span>
 					</TableCell>
-					<TableCell className={classes.blackBorder}></TableCell>
-					<TableCell className={classes.blackBorder}></TableCell>
-					<TableCell className={classes.blackBorder}></TableCell>
-					<TableCell className={classes.blackBorder}></TableCell>
-					<TableCell className={classes.blackBorder}></TableCell>
-					<TableCell className={classes.blackBorder}></TableCell>
-					<TableCell className={classes.blackBorder}></TableCell>
+					{[...Array(7)]
+						.map((_, i) => i + 1)
+						.map((el) => (
+							<TableCell key={el.toString()} className={classes.blackBorder}></TableCell>
+						))}
 				</TableRow>
 			))}
 		</TableBody>
