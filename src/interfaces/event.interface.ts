@@ -5,4 +5,5 @@ export interface Event {
 	startDate: string;
 	endDate: string;
 	title: string;
+	left: string;
 }

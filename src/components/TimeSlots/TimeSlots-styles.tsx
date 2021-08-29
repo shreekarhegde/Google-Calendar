@@ -21,5 +21,7 @@ export const useStyles = makeStyles({
 	},
 	slotWidth: {
 		width: '150px',
+		padding: '0px',
+		position: 'relative',
 	},
 });

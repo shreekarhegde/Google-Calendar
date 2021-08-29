@@ -11,6 +11,9 @@ export const useStyles = makeStyles({
 		cursor: 'pointer',
 		display: 'inherit',
 		width: 'inherit',
+		border: '1px solid white',
+		position: 'absolute',
+		top: '0px',
 	},
 	flexCol: {
 		display: 'flex',
