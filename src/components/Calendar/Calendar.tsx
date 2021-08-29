@@ -8,7 +8,7 @@ import { WeekView } from '../WeekView/WeekView';
 export const Calendar = () => {
 	const [startDate, setStartDate] = useState(+moment());
 	const [weekDays, setWeekDays] = useState(getAllDaysInTheWeek());
-	const [month, setMonth] = useState('September');
+	const [month, setMonth] = useState(moment().format('MMMM'));
 	const classes = useStyles();
 
 	/**
@@ -37,6 +37,7 @@ export const Calendar = () => {
 	const reset = () => {
 		setStartDate(+moment());
 		setWeekDays(getAllDaysInTheWeek());
+		setMonth(moment().format('MMMM'));
 	};
 
 	return (
