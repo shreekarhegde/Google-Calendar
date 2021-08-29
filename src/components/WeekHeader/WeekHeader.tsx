@@ -3,6 +3,8 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import { Day } from '../../interfaces';
 import { useStyles } from './WeekHeader-styles';
+import { Fab } from '@material-ui/core';
+import moment from 'moment';
 
 const WeekHeader = (props: any) => {
 	const classes = useStyles();
@@ -15,7 +17,11 @@ const WeekHeader = (props: any) => {
 				{weekDays.map((day: Day) => (
 					<TableCell key={day.date} className={classes.textCenter}>
 						<div>{day.weekDayName}</div>
-						<div className={classes.date}>{day.date}</div>
+						{day.weekDayName === moment(new Date()).format('ddd') && day.date === new Date().getDate() ? (
+							<Fab style={{ backgroundColor: '#1a73e8', color: 'white', fontSize: '20px' }}>{day.date}</Fab>
+						) : (
+							<div className={classes.date}>{day.date}</div>
+						)}
 					</TableCell>
 				))}
 			</TableRow>

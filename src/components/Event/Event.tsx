@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStyles } from './Event-styles';
-import moment from 'moment';
+import { formattedTime } from '../../utils';
 
 const eventHighlighter = {
 	backgroundColor: 'rgb(3, 155, 229)',
@@ -11,6 +11,7 @@ const eventHighlighter = {
 	zIndex: 1,
 	cursor: 'pointer',
 	display: 'inherit',
+	width: 'inherit',
 } as React.CSSProperties;
 
 export const Event = (props: any) => {
@@ -21,12 +22,14 @@ export const Event = (props: any) => {
 		<div
 			style={{
 				...eventHighlighter,
+				display: 'flex',
+				flexDirection: 'column',
 			}}
 		>
 			{props.event.title} <br />
 			{props.event && props.event.start && (
 				<span style={{ fontSize: 10 }}>
-					{moment(props.event.start).format('hh:mm a')} - {moment(props.event.end).format('hh:mm a')}
+					{formattedTime(props.event.start)} - {formattedTime(props.event.end)}
 				</span>
 			)}
 		</div>

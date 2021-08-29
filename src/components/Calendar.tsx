@@ -30,7 +30,12 @@ export const Calendar = () => {
 
 	return (
 		<React.Fragment>
-			<Header goToPreviousWeek={goToPreviousWeek} goToNextWeek={goToNextWeek} month={month} />
+			<Header
+				goToPreviousWeek={goToPreviousWeek}
+				goToNextWeek={goToNextWeek}
+				month={month}
+				style={{ position: 'fixed', width: '100%' }}
+			/>
 			<WeekView weekDays={weekDays} />
 		</React.Fragment>
 	);
