@@ -1,19 +1,19 @@
 import TableBody from '@material-ui/core/TableBody';
-import { times } from '../../utils';
+import { formattedTime, isDateEqual, isTimeEqual, times } from '../../utils';
 import TableRow from '@material-ui/core/TableRow';
-import moment from 'moment';
 import TableCell from '@material-ui/core/TableCell';
 import { useStyles } from '../TimeSlots/TimeSlots-styles';
 import { Event } from '../Event/Event';
 
 export const TimeSlots = (props: any) => {
 	const classes = useStyles();
-	let event = { title: 'random', start: 9, end: 10, startDate: new Date(), endDate: '29-08-21' };
-	const formattedTime = (time: number) => moment().set('hours', time).format('h a');
-	const isTimeEqual = (time: number, event: any) => formattedTime(time) === formattedTime(event.start);
-	const isDateEqual = (colDate: Date, eventDate: Date) => {
-		return moment(new Date(colDate.setHours(0, 0, 0))).isSame(new Date(eventDate), 'date');
-	};
+	let events = [
+		{ title: 'random 1', start: 9, end: 10, startDate: new Date(), endDate: '29-08-21' },
+		{ title: 'random 2', start: 10, end: 11, startDate: new Date(), endDate: '29-08-21' },
+		{ title: 'random 3', start: 10, end: 11, startDate: new Date('08-30-2021'), endDate: '29-08-21' },
+		{ title: 'random 4', start: 10, end: 11, startDate: new Date('08-30-2021'), endDate: '29-08-21' },
+	];
+
 	return (
 		<TableBody>
 			<TableRow>
@@ -31,7 +31,14 @@ export const TimeSlots = (props: any) => {
 					</TableCell>
 					{props.weekDays.map((el: any) => (
 						<TableCell key={el.dateStamp} className={classes.blackBorder}>
-							{isTimeEqual(time, event) && isDateEqual(new Date(), new Date(el.dateStamp)) && <Event event={event} />}
+							{events.map((event) => {
+								return (
+									isTimeEqual(time, event) &&
+									isDateEqual(new Date(el.dateStamp), new Date(event.startDate)) && (
+										<Event key={event.title} event={event} />
+									)
+								);
+							})}
 						</TableCell>
 					))}
 				</TableRow>

@@ -3,14 +3,14 @@ import { useStyles } from './Event-styles';
 import moment from 'moment';
 
 const eventHighlighter = {
-	backgroundColor: '#b3e1f7',
-	border: '1px solid #81cdf2',
+	backgroundColor: 'rgb(3, 155, 229)',
 	borderRadius: '4px',
 	color: 'white',
 	padding: '2px 4px',
 	fontSize: '12px',
 	zIndex: 1,
 	cursor: 'pointer',
+	display: 'inherit',
 } as React.CSSProperties;
 
 export const Event = (props: any) => {
@@ -24,9 +24,11 @@ export const Event = (props: any) => {
 			}}
 		>
 			{props.event.title} <br />
-			<span style={{ fontSize: 10 }}>
-				{moment(props.event.start).format('hh:mm a')} - {moment(props.event.end).format('hh:mm a')}
-			</span>
+			{props.event && props.event.start && (
+				<span style={{ fontSize: 10 }}>
+					{moment(props.event.start).format('hh:mm a')} - {moment(props.event.end).format('hh:mm a')}
+				</span>
+			)}
 		</div>
 	);
 };

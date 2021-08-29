@@ -17,3 +17,8 @@ export const getAllDaysInTheWeek = (currentDate = moment()) => {
 
 // All the hours in the day
 export const times = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23];
+
+export const formattedTime = (time: number) => moment().set('hours', time).format('h a');
+export const isTimeEqual = (time: number, event: any = {}) => formattedTime(time) === formattedTime(event.start) || false;
+export const isDateEqual = (colDate: Date, eventDate: Date) =>
+	moment(new Date(colDate.setHours(0, 0, 0))).isSame(new Date(eventDate), 'date') || false;
