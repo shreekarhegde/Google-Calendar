@@ -5,12 +5,11 @@ import { Event } from '../../interfaces';
 export const EventComponent = (props: { event: Event }) => {
 	const classes = useStyles();
 	const outerDivClasses = `${classes.eventHighlighter} ${classes.flexCol}`;
-	console.log(classes.eventHighlighter);
 	return (
 		<div className={outerDivClasses}>
 			{props.event.title} <br />
 			{props.event && props.event.startTime && (
-				<span style={{ fontSize: 10 }}>
+				<span className={classes.font}>
 					{formattedTime(props.event.startTime)} - {formattedTime(props.event.endTime)}
 				</span>
 			)}

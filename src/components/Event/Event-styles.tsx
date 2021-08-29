@@ -16,4 +16,7 @@ export const useStyles = makeStyles({
 		display: 'flex',
 		flexDirection: 'column',
 	},
+	font: {
+		fontSize: 10,
+	},
 });

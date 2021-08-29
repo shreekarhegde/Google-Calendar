@@ -19,4 +19,7 @@ export const useStyles = makeStyles({
 		left: '30px',
 		width: 'fit-content',
 	},
+	slotWidth: {
+		width: '150px',
+	},
 });

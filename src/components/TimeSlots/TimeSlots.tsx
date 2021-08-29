@@ -10,6 +10,7 @@ import { EventComponent } from '../Event/Event';
 
 export const TimeSlots = (props: WeekDays) => {
 	const classes = useStyles();
+	const slotClasess = `${classes.slotWidth} ${classes.blackBorder}`;
 
 	const [events, setEvents] = useState([]);
 
@@ -37,11 +38,11 @@ export const TimeSlots = (props: WeekDays) => {
 			</TableRow>
 			{times.map((time: any) => (
 				<TableRow key={time}>
-					<TableCell className={classes.time} style={{ width: '45px' }}>
+					<TableCell className={classes.time}>
 						<span className={classes.timeFormat}>{formattedTime(time)}</span>
 					</TableCell>
 					{props.weekDays.map((el: any) => (
-						<TableCell key={el.dateStamp} className={classes.blackBorder} style={{ width: '150px' }}>
+						<TableCell key={el.dateStamp} className={slotClasess}>
 							{events.map((event: any) => {
 								return (
 									isTimeEqual(time, event) &&
