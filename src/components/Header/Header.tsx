@@ -16,16 +16,12 @@ export const Header = (props: any) => {
 	const rootClasses = `${classes.root} ${classes.borderBottom}`;
 	const month = props.month;
 	const today = `${moment().format('dddd')}, ${new Date().getDate()} ${moment().format('MMMM')}`;
+	const src = `//ssl.gstatic.com/calendar/images/dynamiclogo_2020q4/calendar_${new Date().getDate()}_2x.png#'}`;
 	return (
 		<div className={rootClasses}>
 			<AppBar position='static'>
 				<Toolbar className={toolBarClasses}>
-					<img
-						className={`${'gb_tc gb_6d'} ${classes.img}`}
-						src='//ssl.gstatic.com/calendar/images/dynamiclogo_2020q4/calendar_28_2x.png#'
-						alt=''
-						aria-hidden='true'
-					/>
+					<img className={`${'gb_tc gb_6d'} ${classes.img}`} src={src} alt='' aria-hidden='true' />
 					<Card variant='outlined' className={calendarClasses}>
 						<CardContent className={classes.p7}>Calendar</CardContent>
 					</Card>
@@ -42,7 +38,9 @@ export const Header = (props: any) => {
 					<Tooltip title='Next Week'>
 						<ChevronRightIcon className={classes.pointer} onClick={props.goToNextWeek} />
 					</Tooltip>
-					<h2 className={classes.p7}>{month}</h2>
+					<Card variant='outlined' className={calendarClasses}>
+						<CardContent className={classes.p7}>{month}</CardContent>
+					</Card>
 				</Toolbar>
 			</AppBar>
 		</div>

@@ -22,3 +22,10 @@ export const formattedTime = (time: number) => moment().set('hours', time).forma
 export const isTimeEqual = (time: number, event: any = {}) => formattedTime(time) === formattedTime(event.startTime) || false;
 export const isDateEqual = (colDate: Date, eventDate: Date) =>
 	moment(new Date(colDate.setHours(0, 0, 0))).isSame(new Date(eventDate), 'date') || false;
+
+export const generateHeight = (event: any) => {
+	let start = parseInt(event.startTime);
+	let end = parseInt(event.endTime);
+	let height = (end - start) * 100;
+	return `${height + '%'}`;
+};

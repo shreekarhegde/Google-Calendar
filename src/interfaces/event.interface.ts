@@ -6,4 +6,5 @@ export interface Event {
 	endDate: string;
 	title: string;
 	left: string;
+	height: string;
 }

@@ -1,12 +1,13 @@
 import { openDB } from 'idb';
 import moment from 'moment';
 import { Calendar } from '../interfaces';
+import { generateHeight } from '../utils';
 
 let events: any = [
 	{ title: 'Event 1', startTime: '1', endTime: '2', startDate: new Date('09-03-2021'), endDate: new Date('09-03-2021') },
 	{ title: 'Event 2', startTime: '10', endTime: '11', startDate: new Date('09-04-2021'), endDate: new Date('09-04-2021') },
 	{ title: 'Event 3', startTime: '7', endTime: '8', startDate: new Date('08-29-2021'), endDate: new Date('08-29-2021') },
-	{ title: 'Event 4', startTime: '7', endTime: '8', startDate: new Date('08-29-2021'), endDate: new Date('08-29-2021') },
+	{ title: 'Event 4', startTime: '7', endTime: '9', startDate: new Date('08-29-2021'), endDate: new Date('08-29-2021') },
 ];
 
 let copyEvents = [...events];
@@ -42,6 +43,7 @@ const promiseObj = openDB<Calendar>('Calender', 1, {
 				startDate: event.startDate,
 				endDate: event.endDate,
 				left: `${event.left}%`,
+				height: generateHeight(event),
 			};
 			await (await promiseObj).add('event', data);
 		}

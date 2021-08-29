@@ -16,7 +16,7 @@ export const useStyles = makeStyles({
 	timeFormat: {
 		position: 'absolute',
 		top: '-12px',
-		left: '30px',
+		left: '50px',
 		width: 'fit-content',
 	},
 	slotWidth: {
