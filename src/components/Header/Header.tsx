@@ -2,9 +2,10 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import { CardContent } from '@material-ui/core';
+import { CardContent, Tooltip } from '@material-ui/core';
 import { Card } from '@material-ui/core';
 import { useStyles } from './Header-styles';
+import moment from 'moment';
 
 export const Header = (props: any) => {
 	const classes = useStyles();
@@ -14,7 +15,7 @@ export const Header = (props: any) => {
 	const iconClasses = `${classes.ml20} ${classes.pointer}`;
 	const rootClasses = `${classes.root} ${classes.borderBottom}`;
 	const month = props.month;
-
+	const today = `${moment().format('dddd')}, ${new Date().getDate()} ${moment().format('MMMM')}`;
 	return (
 		<div className={rootClasses}>
 			<AppBar position='static'>
@@ -29,12 +30,18 @@ export const Header = (props: any) => {
 						<CardContent className={classes.p7}>Calendar</CardContent>
 					</Card>
 					<Card variant='outlined' className={cardClasses}>
-						<CardContent className={classes.p7} onClick={props.reset}>
-							Today
-						</CardContent>
+						<Tooltip title={today}>
+							<CardContent className={classes.p7} onClick={props.reset}>
+								Today
+							</CardContent>
+						</Tooltip>
 					</Card>
-					<ChevronLeftIcon className={iconClasses} onClick={props.goToPreviousWeek} />
-					<ChevronRightIcon className={classes.pointer} onClick={props.goToNextWeek} />
+					<Tooltip title='Previous Week'>
+						<ChevronLeftIcon className={iconClasses} onClick={props.goToPreviousWeek} />
+					</Tooltip>
+					<Tooltip title='Next Week'>
+						<ChevronRightIcon className={classes.pointer} onClick={props.goToNextWeek} />
+					</Tooltip>
 					<h2 className={classes.p7}>{month}</h2>
 				</Toolbar>
 			</AppBar>
